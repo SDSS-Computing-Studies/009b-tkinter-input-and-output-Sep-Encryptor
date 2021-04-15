@@ -45,6 +45,9 @@ L3.grid(row=1,column=5)
 e1.grid(row=1,column=2)
 e3.grid(row=1,column=4)
 e4.grid(row=1,column=6)
-b1.grid(row=2,column)
+b1.grid(row=2,column=1,columnspan=3)
+e2.grid(row=3,column=1,columnspan=6)
+
+win.mainloop()
 
 
