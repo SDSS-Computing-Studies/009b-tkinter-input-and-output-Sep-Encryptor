@@ -92,5 +92,3 @@ l2.grid(row=3,column=1)
 e3.grid(row=3,column=2,columnspan=4)
 
 win.mainloop()
-                
-        
