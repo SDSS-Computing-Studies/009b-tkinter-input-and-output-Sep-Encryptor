@@ -1,3 +1,4 @@
+
 """
 Factoring simple trinomials
 Create a user interface using tkinter.
@@ -14,81 +15,44 @@ between + and -.
 """
 
 import tkinter as tk
-from tkinter import *
-
+from tkinter import * 
 import math
 
 win = tk.Tk()
-win.title("Factor")
-win.geometry("600x200")
 
 eoutput = StringVar()
 eoutput.set("Output goes here")
 
 def clickFunction():
-    answer=""
-    number1 = e1.get()
-    number2 = e2.get()
-    number1=float(number1)
-    number2=float(number2)
-    c=float((number1)**2 - 4*1*number2)
-    a=1
-    if c >= 0 and c == int(c) and math.sqrt(c)==int(math.sqrt(c)):
-        while a <= number2:
-            if (number2)%a == 0:
-                b=int((number2)/a)
-                if a + b == number1:
-                    b=str(b)
-                    answer="(x + "+str(a)+")(x + "+b+")"
-                a+=1
+    num1 = e1.get()
+    num2 = e2.get()
+    num1 = float(num1)
+    num2 = float(num2)
 
-            if number1 < 0 or number2 < 0:
-                a=-1
-            while abs(a) < number2:
-                if (number2)%a == 0:
-                    b=int((number2)/a)
-                    if a+b == number1:                    
-                        b=str(b)
-                        if int(b)>0:
-                            answer="(x "+str(a)+")(x + "+b+")"
-                        elif int(a)>0:
-                            answer="(x + "+str(a)+")(x "+b+")"
-                        else:
-                            answer="(x "+str(a)+")(x "+b+")"
+    x1 = (-num1 + math.sqrt((num1 ** 2) - 4 * 1 * num2)) / (2 * 1)
+    x2 = (-num1 - math.sqrt((num1 ** 2) - 4 * 1 * num2)) / (2 * 1)
+    quadAnswer = [x1,x2]
+    quadAnswer.sort()
 
-                a-=1
-
-        else:
-            answer="cannot be factored"
-
-        e3.delete(0,END)
-        e3.insert(0,answer)
-
-l1=tk.Label(win,text="enter the coefficients: ")
-l2=tk.Label(win,text="Factored form: ")
-l3=tk.Label(win,text="x^2 + ")
-l4=tk.Label(win,text="x + ")
-
-b1 = tk.Button(win, text="Click to factor", command=clickFunction)
-
-e1=tk.Entry(win,width=5)
-e2=tk.Enrty(win,width=5)
-e3=tk.Entry(win, width=2, textvariable=eoutput)
+    eoutput.set(str(resultvar1.get())+str(resultvar2.get()))
 
 
-l1.grid(row=1,column=1)
-l3.grid(row=1,column=2)
+l1 = Label(win, text="ax^2 + bx + c")
+l2 =  Label(win, text="Enter in coefficients b and c")
+l3 = Label(win, text="Entry b")
+e1 = Entry(win)
+l4 = Label(win, text="Entry c")
+e2 = Entry(win)
+b1 = Button(win, text="Click to see output", command=clickFunction)
+a_entry1 = Entry(win, width=70, textvariable=eoutput)
 
-e1.grid(row=1,column=3)
-
-l4.grid(row=1,column=4)
-
-e2.grid(row=1,column=5)
-
-b1.grid(row=2, column=1, columnspan=5)
-
-
-l2.grid(row=3,column=1)
-e3.grid(row=3,column=2,columnspan=4)
+l1.pack()
+l2.pack()
+l3.pack()
+e1.pack()
+l4.pack()
+e2.pack()
+b1.pack()
+a_entry1.pack()
 
 win.mainloop()
