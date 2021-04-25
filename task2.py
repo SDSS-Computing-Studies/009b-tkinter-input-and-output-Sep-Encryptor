@@ -34,7 +34,7 @@ def clickFunction():
     quadAnswer = [x1,x2]
     quadAnswer.sort()
 
-    eoutput.set(str(resultvar1.get())+str(resultvar2.get()))
+    eoutput.set(str(r1.get())+str(r2.get()))
 
 
 l1 = Label(win, text="ax^2 + bx + c")
